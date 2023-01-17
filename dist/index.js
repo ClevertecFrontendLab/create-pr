@@ -9701,7 +9701,17 @@ const main = async () => {
             repo,
             pull_number,
             reviewers: [
-                'Gaurrus'
+                'ValadzkoAliaksei',
+                'Gaurrus',
+                'dariavorom',
+                'Ivan6813',
+                'graffad',
+                'klichkovskiy',
+                'vvikota',
+                'vsachenko',
+                'SergeyGlazun',
+                'Java-zhara',
+                'Snoop593',
             ]
         });
 
@@ -9712,6 +9722,7 @@ const main = async () => {
 
 // Call the main function to run the action
 main();
+
 })();
 
 module.exports = __webpack_exports__;
