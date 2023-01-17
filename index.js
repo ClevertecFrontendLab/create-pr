@@ -15,6 +15,7 @@ const main = async () => {
             repo,
             pull_number,
             reviewers: [
+                'ValadzkoAliaksei',
                 'Gaurrus',
                 'dariavorom',
                 'Ivan6813',
