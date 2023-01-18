@@ -9688,37 +9688,37 @@ const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
 const main = async () => {
-    try {
-        const owner = core.getInput('owner', { required: true });
-        const repo = core.getInput('repo', { required: true });
-        const pull_number = core.getInput('pull_number', { required: true });
-        const token = core.getInput('token', { required: true });
+  try {
+    const owner = core.getInput('owner', { required: true });
+    const repo = core.getInput('repo', { required: true });
+    const pull_number = core.getInput('pull_number', { required: true });
+    const token = core.getInput('token', { required: true });
 
-        const octokit = new github.getOctokit(token);
+    const octokit = new github.getOctokit(token);
 
-        await octokit.rest.pulls.requestReviewers({
-            owner,
-            repo,
-            pull_number,
-            reviewers: [
-                'ValadzkoAliaksei',
-                'Gaurrus',
-                'dariavorom',
-                'Ivan6813',
-                'graffad',
-                'klichkovskiy',
-                'vvikota',
-                'vsachenko',
-                'SergeyGlazun',
-                'Java-zhara',
-                'Snoop593',
-            ]
-        });
-
-    } catch (error) {
-        core.setFailed(error.message);
-    }
-}
+    await octokit.rest.pulls.requestReviewers({
+      owner,
+      repo,
+      pull_number,
+      reviewers: [
+        'Rastamanby',
+        'ValadzkoAliaksei',
+        'Gaurrus',
+        'dariavorom',
+        'Ivan6813',
+        'graffad',
+        'klichkovskiy',
+        'vvikota',
+        'vsachenko',
+        'SergeyGlazun',
+        'Java-zhara',
+        'Snoop593',
+      ],
+    });
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+};
 
 // Call the main function to run the action
 main();
