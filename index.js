@@ -21,7 +21,6 @@ const main = async () => {
         'dariavorom',
         'Ivan6813',
         'graffad',
-        'klichkovskiy',
         'vvikota',
         'vsachenko',
         'SergeyGlazun',
