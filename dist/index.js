@@ -9702,8 +9702,7 @@ const main = async () => {
       pull_number,
       reviewers: [
         'Rastamanby',
-        // 'ValadzkoAliaksei',
-	'klichkovskiy',
+        'ValadzkoAliaksei',
         'Gaurrus',
         'dariavorom',
         'Ivan6813',
@@ -9712,6 +9711,7 @@ const main = async () => {
         'vsachenko',
         'SergeyGlazun',
         'Snoop593',
+        'Java-zhara',
       ],
     });
   } catch (error) {
