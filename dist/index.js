@@ -9693,9 +9693,6 @@ const main = async () => {
     const repo = core.getInput('repo', { required: true });
     const pull_number = core.getInput('pull_number', { required: true });
     const token = core.getInput('token', { required: true });
-    const base_url = core.getInput('host', { required: false });
-
-    console.log('fuck', base_url);
 
     const octokit = new github.getOctokit(token);
 
@@ -9706,6 +9703,7 @@ const main = async () => {
       reviewers: [
         'Rastamanby',
         'Gaurrus',
+        'ValadzkoAliaksei',
         'dariavorom',
         'Ivan6813',
         'graffad',
