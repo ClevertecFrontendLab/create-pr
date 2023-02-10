@@ -23,7 +23,7 @@ const main = async () => {
         'graffad',
         'vvikota',
         'vsachenko',
-        'SergeyGlazun',
+        // 'SergeyGlazun',
         'Snoop593',
         'Java-zhara',
       ],
