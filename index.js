@@ -4,6 +4,7 @@ const axios = require('axios');
 
 const API_URL = 'https://training.clevertec.ru';
 const EXTRA_MENTORS_LIST = ['ValadzkoAliaksei'];
+const ORGANIZATION_NAME = 'ClevertecFrontendLab';
 
 const main = async () => {
   try {
@@ -16,8 +17,14 @@ const main = async () => {
 
     const octokit = new github.getOctokit(token);
 
-    const response = await axios.get(mentors_api_endpoint);
-    const reviewers = response.data?.map((mentor) => mentor.github) ?? EXTRA_MENTORS_LIST;
+    const mentors = await axios.get(mentors_api_endpoint);
+    const people = await octokit.rest.orgs.listMembers({
+      org: ORGANIZATION_NAME,
+    });
+
+    const mentors_list = mentors.data?.map((mentor) => mentor.github) ?? EXTRA_MENTORS_LIST;
+    const people_list = people?.map((mentor) => mentor.login) ?? EXTRA_MENTORS_LIST;
+    const reviewers = people_list.filter((mentor) => mentors_list.includes(mentor));
 
     await octokit.rest.pulls.requestReviewers({
       owner,
