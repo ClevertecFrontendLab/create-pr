@@ -18,7 +18,7 @@ const main = async () => {
     const octokit = new github.getOctokit(token);
 
     const mentors = await axios.get(mentors_api_endpoint);
-    const people = await octokit.rest.orgs.listMembers({
+    const { data: people } = await octokit.rest.orgs.listMembers({
       org: ORGANIZATION_NAME,
     });
 
