@@ -17,14 +17,22 @@ const main = async () => {
 
     const octokit = new github.getOctokit(token);
 
+    const { data: pull_request_info } = await octokit.rest.pulls.get({
+      owner,
+      repo,
+      pull_number,
+    });
+
     const mentors = await axios.get(mentors_api_endpoint);
     const { data: people } = await octokit.rest.orgs.listMembers({
       org: ORGANIZATION_NAME,
     });
 
+    const author_login = pull_request_info.user.login;
     const mentors_list = mentors.data?.map((mentor) => mentor.github) ?? EXTRA_MENTORS_LIST;
     const people_list = people?.map((mentor) => mentor.login) ?? EXTRA_MENTORS_LIST;
-    const reviewers = people_list.filter((mentor) => mentors_list.includes(mentor));
+    const temp_reviewers = people_list.filter((mentor) => mentors_list.includes(mentor));
+    const reviewers = temp_reviewers.filter((mentor) => mentor !== author_login);
 
     await octokit.rest.pulls.requestReviewers({
       owner,
